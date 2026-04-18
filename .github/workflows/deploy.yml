@@ -1,0 +1,40 @@
+name: Build and Upload to WeChat Mini Program
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: ai-faq-miniapp/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd ai-faq-miniapp
+          npm ci
+
+      - name: Build WeApp
+        run: |
+          cd ai-faq-miniapp
+          npm run build:weapp
+
+      - name: Upload to WeChat Mini Program
+        run: |
+          cd ai-faq-miniapp
+          npm install miniprogram-ci
+          npx miniprogram-ci \
+            --appid ${{ secrets.WX_APPID }} \
+            --privatekey ${{ secrets.WX_PRIVATE_KEY_PATH }} \
+            --version ${{ github.run_number }}.${{ github.run_id }} \
+            --desc 'GitHub Actions 自动上传'
