@@ -21,8 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Debug bin
+        run: ls node_modules/.bin/ | head -20
+
       - name: Build WeApp
-        run: ./node_modules/.bin/taro build --type weapp
+        run: ./node_modules/.bin/taro build --type weapp --release
 
       - name: Upload to WeChat Mini Program
         run: |
