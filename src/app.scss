@@ -1,0 +1,32 @@
+// AI答疑助手 - 教育科技风格
+// 配色：主色#4A6CF7(科技蓝) / 辅助#FF9F43(活力橙) / 成功#2ED573(知识绿) / 背景#F5F7FF
+
+page {
+  background: linear-gradient(180deg, #F5F7FF 0%, #EEF1FF 100%);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 32rpx;
+  color: #2D3748;
+}
+
+// 全局圆角卡片
+.card-base {
+  background: #ffffff;
+  border-radius: 24rpx;
+  box-shadow: 0 4px 16px rgba(74, 108, 247, 0.08);
+}
+
+// 通用渐变按钮
+.btn-gradient {
+  background: linear-gradient(135deg, #4A6CF7 0%, #6B8AFF 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 48rpx;
+  box-shadow: 0 8px 24px rgba(74, 108, 247, 0.3);
+}
+
+// 主色调文字
+.text-primary { color: #4A6CF7; }
+.text-secondary { color: #FF9F43; }
+.text-accent { color: #2ED573; }
+.text-warning { color: #FF6B6B; }

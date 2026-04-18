@@ -1,0 +1,41 @@
+{
+  "name": "ai-faq-miniapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI%E7%AD%94%E7%96%AF%E5%8A%A9%E6%89%8B%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+  "scripts": {
+    "dev:weapp": "taro build --type weapp --watch",
+    "dev:h5": "taro build --type h5 --watch",
+    "build:weapp": "taro build --type weapp",
+    "build:h5": "taro build --type h5",
+    "preview:weapp": "taro build --type weapp && minidev preview"
+  },
+  "dependencies": {
+    "@tarojs/components": "^4.0.0",
+    "@tarojs/plugin-framework-react": "^4.0.0",
+    "@tarojs/plugin-platform-weapp": "^4.0.0",
+    "@tarojs/react": "^4.0.0",
+    "@tarojs/runtime": "^4.0.0",
+    "@tarojs/taro": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-react": "^7.28.5",
+    "@tarojs/cli": "^4.0.0",
+    "@tarojs/webpack5-runner": "^4.2.0",
+    "@types/react": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "babel-preset-taro": "^4.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-taro": "^4.0.0",
+    "eslint-plugin-react": "^7.34.0",
+    "typescript": "^5.4.0",
+    "webpack": "^5.94.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
