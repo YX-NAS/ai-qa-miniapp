@@ -22,7 +22,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build WeApp
-        run: npm run build:weapp
+        run: ./node_modules/.bin/taro build --type weapp
 
       - name: Upload to WeChat Mini Program
         run: |
