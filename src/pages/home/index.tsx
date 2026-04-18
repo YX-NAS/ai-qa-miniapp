@@ -16,7 +16,10 @@ export default function Home() {
       success: (res) => {
         setImageUrl(res.tempFilePaths[0])
       },
-      fail: () => {
+      fail: (err) => {
+        if (err && err.errMsg && err.errMsg.includes('cancel')) {
+          return
+        }
         Taro.showToast({ title: '请允许相机权限', icon: 'none' })
       }
     })
@@ -29,6 +32,12 @@ export default function Home() {
       sizeType: ['compressed'],
       success: (res) => {
         setImageUrl(res.tempFilePaths[0])
+      },
+      fail: (err) => {
+        if (err && err.errMsg && err.errMsg.includes('cancel')) {
+          return
+        }
+        Taro.showToast({ title: '请允许相册权限', icon: 'none' })
       }
     })
   }
@@ -40,12 +49,10 @@ export default function Home() {
     Taro.showLoading({ title: '识别中...' })
 
     try {
-      // 调用真实API：OCR + LLM分析
       const result = await analyzeImage(imageUrl)
 
       Taro.hideLoading()
 
-      // 跳转到结果页
       Taro.navigateTo({
         url: `/pages/result/index?data=${encodeURIComponent(JSON.stringify(result))}`
       })
