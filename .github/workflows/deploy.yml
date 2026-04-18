@@ -17,21 +17,15 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: ai-faq-miniapp/package-lock.json
 
       - name: Install dependencies
-        run: |
-          cd ai-faq-miniapp
-          npm ci
+        run: npm ci
 
       - name: Build WeApp
-        run: |
-          cd ai-faq-miniapp
-          npm run build:weapp
+        run: npm run build:weapp
 
       - name: Upload to WeChat Mini Program
         run: |
-          cd ai-faq-miniapp
           npm install miniprogram-ci
           npx miniprogram-ci \
             --appid ${{ secrets.WX_APPID }} \
