@@ -35,6 +35,6 @@ jobs:
           npm install miniprogram-ci
           npx miniprogram-ci \
             --appid ${{ secrets.WX_APPID }} \
-            --privatekey ${{ secrets.WX_PRIVATE_KEY_PATH }} \
+            --privatekey "${{ secrets.WX_PRIVATE_KEY }}" \
             --version ${{ github.run_number }}.${{ github.run_id }} \
             --desc 'GitHub Actions 自动上传'
