@@ -19,14 +19,14 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Build WeApp
         run: npm run build:weapp
 
       - name: Upload to WeChat Mini Program
         run: |
-          npm install miniprogram-ci
+          npm install miniprogram-ci --legacy-peer-deps
           npx miniprogram-ci \
             --appid ${{ secrets.WX_APPID }} \
             --privatekey "${{ secrets.WX_PRIVATE_KEY }}" \
